@@ -1,0 +1,14 @@
+package: github.build.ge.com/ADF/trueconnect-link
+ignore:
+- github.com/golang/protobuf
+- google.golang.org/appengine
+import:
+- package: github.com/google/uuid
+- package: golang.org/x/net
+  version: 7864c9eef811cd4e2387a4d17eaf985e412b5032
+  subpackages:
+  - context
+- package: golang.org/x/oauth2
+  version: 7357e96168422ba1e6e7f21075713b72d58764e7
+  subpackages:
+  - clientcredentials

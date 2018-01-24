@@ -1,0 +1,123 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "LinkConfiguration",
+  "description": "used to configure the Link client to TrueConnect",
+  "type": "object",
+  "properties": {
+    "runasservice": {
+      "description": "setting this value to true will cause the client to run indefinitely searching the target directories at timed intervals",
+      "type": "boolean"
+    },
+    "clientid": {
+      "description": "used as the identity for authentication into TrueConnect",
+      "type": "string"
+    },
+    "secret": {
+      "description": "used as the password for authentication into TrueConnect",
+      "type": "string"
+    },
+    "tokenurl": {
+      "description": "The URI of the UAA service, that provides authentication tokens",
+      "type": "string"
+    },
+    "endpoint": {
+      "description": "The URI of the TrueConnect service to store the files on",
+      "type": "string"
+    },
+    "targets": {
+      "description": "List of locations to search for files to upload",
+      "type": "array",
+      "items": {
+        "description": "A target configuration that defines what, where and how often a files are searched for in a set location",
+        "type": "object",
+        "required": ["name","tenant","location","match","datatype","dataformat"],
+        "properties": {
+          "name": {
+            "description": "The name of the target which can be invoked in a one time collection with the command Start",
+            "type": "string"
+          },
+          "active": {
+            "description": "When set this target will be searched when Link is running in Auto mode",
+            "type": "boolean"
+          },
+          "tenant": {
+            "description": "This is the owner of the data and will govern where the data is stored within TrueConnect",
+            "type": "string"
+          },
+          "location": {
+            "description": "This is the location to be searched for files by Link",
+            "type": "string"
+          },
+          "recursive": {
+            "description": "When this is set the all folders below the target location will be searched, with the exception of symbolic links",
+            "type": "boolean"
+          },
+          "match": {
+            "description": "This is a regular expression that describes which files in the target location will be upload",
+            "type": "string"
+          },
+          "datatype": {
+            "description": "This is a mandatory metadata field that describes the type of data contained in the file",
+            "type": "string"
+          },
+          "dataformat": {
+            "description": "This is a mandatory metadata field that describes how the data is encoded in the file",
+            "type": "string"
+          },
+          "pathencodedmetadatatags": {
+            "description": "A list of meta data tags whose value can be derived from the file path of the data file",
+            "type": "array",
+            "items": {
+              "description": "A tag name and regex used to extract metadata from the file path",
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "description": "The name of the metadata tag",
+                  "type": "string"
+                },
+                "match": {
+                  "description": "The regular expression used to extract the metadata value from the file path",
+                  "type": "string"
+                }
+              },
+              "required": ["tag","regex"]
+            }
+          },
+          "statictags": {
+            "description": "A list of meta data tags and their values that are added to each file uploaded",
+            "type": "array",
+            "items": {
+              "description" :"A Metadat tag name and its value",
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "description": "The name of the metadata taf",
+                  "type": "string"
+                },
+                "value": {
+                  "description": "The value to be associated with the metadata tag",
+                  "type": "string"
+                }
+              },
+              "required": ["tag","value"]
+            }
+          },
+          "pollinterval": {
+            "description": "The time in seconds between the last file being uploaded for a target and the next time it checks for new files ",
+            "type": "int"
+          },
+          "onsuccess": {
+            "description": "Command or script to be run on successful upload of the file, the full path of the file uploaded is added as the first argument to the command. The file storage reference is added as the second argument to the command",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "concurrentuploads": {
+      "description": "The number of allowed concurrent uploads, default is 1",
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "required": ["ClientId"]
+}

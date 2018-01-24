@@ -1,0 +1,55 @@
+{
+  "runasservice": false,
+  "clientid": "aviation_trueconnect-tenancytest3_dev",
+  "secret": "xxx",
+  "tokenurl": "https://a8a2ffc4-b04e-4ec1-bfed-7a51dd408725.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token",
+  "endpoint":"https://trueconnect-dev.run.aws-usw02-pr.ice.predix.io",
+  "targets": [
+    {
+      "name":"FindTestFiles",
+      "active":true,
+      "tenant":"testguid3",
+      "location": "C:\\test\\AFKLM_CEOD\\AFKLM_CEOD\\Raw",
+      "recursive": false,
+      "match": ".*FFD$",
+      "datatype": "FFD",
+      "dataformat": "raw",
+      "pathencodedmetadatatags":[
+        {
+          "tag": "FlightDate",
+          "match": "(\\d{6}-\\d{6})-[^-]{10}-[^-]{8}-.{9}-[^-]-[^-]{6}-[^_]{4}FFD$"
+        },
+        {
+          "tag": "FlightNo",
+          "match": "[^_]{6}-[^_]{6}-([^_]{0,10})_*-[^-]{8}-.{9}-[^-]-[^-]{6}-[^_]{4}FFD$"
+        },
+        {
+          "tag": "CityPair",
+          "match": "[^-]{6}-[^-]{6}-[^-]{10}-([^_]{0,8})_*-.{9}-[^-]-[^-]{6}-[^_]{4}FFD$"
+        },
+        {
+          "tag": "IATA",
+          "match": "[^-]{6}-[^-]{6}-[^-]{10}-[^-]{8}-([^_-]{2}).{7}-[^-]-[^-]{6}-[^_]{4}FFD$"
+        },
+        {
+          "tag": "TailNo",
+          "match": "[^-]{6}-[^-]{6}-[^-]{10}-[^-]{8}-[^-]{2}_{0,1}([^_]{1,6}[^-_]{0,1})-[^-]-[^-]{6}-[^_]{4}FFD$"
+        },
+        {
+          "tag": "EngPos",
+          "match": "[^-]{6}-[^-]{6}-[^-]{10}-[^-]{8}-.{9}-(\\d)-[^-]{6}-[^_]{4}FFD$"
+        },
+        {
+          "tag": "ESN",
+          "match": "[^-]{6}-[^-]{6}-[^-]{10}-[^-]{8}-.{9}-[^-]-(\\d{6})-[^_]{4}FFD$"
+        },
+        {
+          "tag": "SPN",
+          "match": "[^-]{6}-[^-]{6}-[^-]{10}-[^-]{8}-.{9}-[^-]-[^-]{6}-([^_]{4})FFD$"
+        }
+      ],
+      "pollinterval": 300
+    }
+  ],
+  "concurrentuploads": 3
+}
