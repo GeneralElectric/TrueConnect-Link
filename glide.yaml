@@ -1,4 +1,4 @@
-package: github.build.ge.com/ADF/trueconnect-link
+package: github.com/GeneralElectric/TrueConnect-link
 ignore:
 - github.com/golang/protobuf
 - google.golang.org/appengine
