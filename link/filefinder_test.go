@@ -2,7 +2,7 @@ package link
 
 import (
 	"context"
-	"github.build.ge.com/ADF/trueconnect-link/trueconnect"
+	"github.com/GeneralElectric/TrueConnect-Link/trueconnect"
 	"io"
 	"os"
 	"path/filepath"
