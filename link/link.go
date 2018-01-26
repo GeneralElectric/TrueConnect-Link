@@ -4,7 +4,7 @@ package link
 import (
 	"context"
 	"encoding/json"
-	"github.build.ge.com/ADF/trueconnect-link/trueconnect"
+	"github.com/GeneralElectric/TrueConnect-Link/trueconnect"
 	"io"
 	"os"
 	"os/exec"
