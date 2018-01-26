@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.build.ge.com/ADF/trueconnect-link/link"
+	"github.com/GeneralElectric/TrueConnect-Link/link"
 	"os"
 	"os/signal"
 )

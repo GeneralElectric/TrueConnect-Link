@@ -56,7 +56,7 @@ This is used to contain additional information
 
 ## Installation
 
-You can download the source from https://github.build.ge.com/ADF/trueconnect-client, compile this with Go version 1.8.3+
+You can download the source via git or from the [releases](https://github.com/GeneralElectric/TrueConnect-Link/releases), compile this with Go version 1.8.3+
 
 Place the executable file along side a configuration file in a folder where it may be executed.
 
