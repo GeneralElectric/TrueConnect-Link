@@ -104,7 +104,7 @@
           },
           "pollinterval": {
             "description": "The time in seconds between the last file being uploaded for a target and the next time it checks for new files ",
-            "type": "int"
+            "type": "integer"
           },
           "onsuccess": {
             "description": "Command or script to be run on successful upload of the file, the full path of the file uploaded is added as the first argument to the command. The file storage reference is added as the second argument to the command",

@@ -1,0 +1,93 @@
+{
+    "$schema":"https://raw.githubusercontent.com/GeneralElectric/TrueConnect-Link/master/docs/LinkConfigurationSchema.json#",
+    "runasservice": false,
+    "clientid": "XXXXXXXXXXXXXXXXXXXXXXXX",
+    "endpoint": "XXXXXXXXXXXXXXXXXXXXXX",
+    "secret": "XXXXXXXXXXXXXXXXXXXX",
+    "tokenurl": "XXXXXXXXXXXXXXXXXX",
+    "concurrentuploads": 1,
+    "targets": [
+        {
+            "name": "RawLeapEngineData",
+            "active": true,
+            "dataformat": "Leap1B",
+            "datatype": "FFD",
+            "location": "XXXXXXXXXXXXXXXXXXXXXXXXX",
+            "tenant": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            "match": ".{12}FFD.{49}$",
+            "pollinterval": 360,
+            "recursive": false,
+            "pathencodedmetadatatags": [
+                {
+                    "tag": "TailNo",
+                    "match": "([^_]{1,2}_{0,1}[^_]{1,5})_*-.{3}-FFD-\\d{8}-\\d{6}-.{2}-[^_]{0,10}_*-[^_]{0,8}_*-\\d{6}[AB]\\d{2}$"
+                },
+                {
+                    "tag": "EngPos",
+                    "match": "[^_]{1,2}_{0,1}[^_]{1,5}_*-(.{3})-FFD-\\d{8}-\\d{6}-.{2}-[^_]{0,10}_*-[^_]{0,8}_*-\\d{6}[AB]\\d{2}$"
+                },
+                {
+                    "tag": "FlightDate",
+                    "match": "[^_]{1,2}_{0,1}[^_]{1,5}_*-.{3}-FFD-(\\d{8}-\\d{6})-.{2}-[^_]{0,10}_*-[^_]{0,8}_*-\\d{6}[AB]\\d{2}$"
+                },
+                {
+                    "tag": "IATA",
+                    "match": "[^_]{1,2}_{0,1}[^_]{1,5}_*-.{3}-FFD-\\d{8}-\\d{6}-(.{2})-[^_]{0,10}_*-[^_]{0,8}_*-\\d{6}[AB]\\d{2}$"
+                },
+                {
+                    "tag": "FlightNo",
+                    "match": "[^_]{1,2}_{0,1}[^_]{1,5}_*-.{3}-FFD-\\d{8}-\\d{6}-.{2}-([^_]{0,10})_*-[^_]{0,8}_*-\\d{6}[AB]\\d{2}$"
+                },
+                {
+                    "tag": "CityPair",
+                    "match": "[^_]{1,2}_{0,1}[^_]{1,5}_*-.{3}-FFD-\\d{8}-\\d{6}-.{2}-[^_]{0,10}_*-([^_]{0,8})_*-\\d{6}[AB]\\d{2}$"
+                },
+                {
+                    "tag": "ESN",
+                    "match": "[^_]{1,2}_{0,1}[^_]{1,5}_*-.{3}-FFD-\\d{8}-\\d{6}-.{2}-[^_]{0,10}_*-[^_]{0,8}_*-(\\d{6})[AB]\\d{2}$"
+                },
+                {
+                    "tag": "Channel",
+                    "match": "[^_]{1,2}_{0,1}[^_]{1,5}_*-.{3}-FFD-\\d{8}-\\d{6}-.{2}-[^_]{0,10}_*-[^_]{0,8}_*-\\d{6}([AB])\\d{2}$"
+                },
+                {
+                    "tag": "Version",
+                    "match": "[^_]{1,2}_{0,1}[^_]{1,5}_*-.{3}-FFD-\\d{8}-\\d{6}-.{2}-[^_]{0,10}_*-[^_]{0,8}_*-\\d{6}[AB]\\(d{2})$"
+                }
+            ]            
+        },
+        {
+            "name": "ZippedLeadEngineData",
+            "active": true,
+            "dataformat": "Leap1B",
+            "datatype": "FFD",
+            "location": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            "tenant": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            "match": ".{12}FFD.*\\.zip$",
+            "pollinterval": 360,
+            "recursive": false,
+            "pathencodedmetadatatags": [
+                {
+                    "tag": "IATA",
+                    "match": "(.{2})[^_]{1,7}_*.{3}FFD_FFD_\\d{14}\\+\\d{4}-\\[.*\\]\\.zip$"
+                },
+                {
+                    "tag": "TailNo",
+                    "match": ".{2}([^_]{1,7})_*.{3}FFD_FFD_\\d{14}\\+\\d{4}-\\[.*\\]\\.zip$"
+                },
+                {
+                    "tag": "EngPos",
+                    "match": ".{2}([^_]{1,7})_*(.{3})FFD_FFD_\\d{14}\\+\\d{4}-\\[.*\\]\\.zip$"
+                },
+                {
+                    "tag": "FlightDate",
+                    "match": ".{2}([^_]{1,7})_*.{3}FFD_FFD_(\\d{14}\\+\\d{4})-\\[.*\\]\\.zip$"
+                },
+                {
+                    "tag": "BoeTag",
+                    "match": ".{2}([^_]{1,7})_*.{3}FFD_FFD_\\d{14}\\+\\d{4}-\\[(.*)\\]\\.zip$"
+                }
+            ]
+        }
+    ]    
+}
