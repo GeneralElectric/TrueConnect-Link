@@ -1,19 +1,19 @@
 {
     "$schema":"https://raw.githubusercontent.com/GeneralElectric/TrueConnect-Link/master/docs/LinkConfigurationSchema.json#",
     "runasservice": false,
-    "clientid": "XXXXXXXXXXXXXXXXXXXXXXXX",
-    "endpoint": "XXXXXXXXXXXXXXXXXXXXXX",
-    "secret": "XXXXXXXXXXXXXXXXXXXX",
-    "tokenurl": "XXXXXXXXXXXXXXXXXX",
+    "clientid": "xxxxxxxxxxxxxxxxxx",
+    "endpoint": "xxxxxxxxxxxxxxxxxx",
+    "secret": "xxxxxxxxxxxxxxxxxx",
+    "tokenurl": "xxxxxxxxxxxxxxxxxx",
     "concurrentuploads": 1,
     "targets": [
         {
             "name": "RawLeapEngineData",
             "active": true,
-            "dataformat": "Leap1B",
-            "datatype": "FFD",
-            "location": "XXXXXXXXXXXXXXXXXXXXXXXXX",
-            "tenant": "XXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            "dataformat": "CEOD",
+            "datatype": "raw",
+            "location": "xxxxxxxxxxxxxxxxxx",
+            "tenant": "xxxxxxxxxxxxxxxxxx",
             "match": ".{12}FFD.{49}$",
             "pollinterval": 360,
             "recursive": false,
@@ -54,15 +54,25 @@
                     "tag": "Version",
                     "match": "[^_]{1,2}_{0,1}[^_]{1,5}_*-.{3}-FFD-\\d{8}-\\d{6}-.{2}-[^_]{0,10}_*-[^_]{0,8}_*-\\d{6}[AB]\\(d{2})$"
                 }
-            ]            
+            ],
+            "statictags": [
+                {
+                    "tag": "ICAO",
+                    "value": "xxxxxxxxxxxxxxxxxx"
+                },
+                {
+                    "tag": "Opertator",
+                    "value": "xxxxxxxxxxxxxxxxxx"
+                }
+            ]
         },
-        {
-            "name": "ZippedLeadEngineData",
+        {            
+            "name": "ZippedLeapEngineData",
             "active": true,
-            "dataformat": "Leap1B",
-            "datatype": "FFD",
-            "location": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-            "tenant": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            "dataformat": "CEOD",
+            "datatype": "zip",
+            "location": "xxxxxxxxxxxxxxxxxx",
+            "tenant": "xxxxxxxxxxxxxxxxxx",
             "match": ".{12}FFD.*\\.zip$",
             "pollinterval": 360,
             "recursive": false,
@@ -87,7 +97,72 @@
                     "tag": "BoeTag",
                     "match": ".{2}([^_]{1,7})_*.{3}FFD_FFD_\\d{14}\\+\\d{4}-\\[(.*)\\]\\.zip$"
                 }
+            ],
+            "statictags": [
+                {
+                    "tag": "ICAO",
+                    "value": "xxxxxxxxxxxxxxxxxx"
+                },
+                {
+                    "tag": "Opertator",
+                    "value": "xxxxxxxxxxxxxxxxxx"
+                }
             ]
+        },
+        {
+            "name":"FindTestFiles",
+            "active":true,
+            "tenant":"testguid3",
+            "location": "C:\\test\\AFKLM_CEOD\\AFKLM_CEOD\\Raw",
+            "recursive": false,
+            "match": ".*FFD$",
+            "datatype": "CEOD",
+            "dataformat": "raw",
+            "pathencodedmetadatatags":[
+                {
+                    "tag": "FlightDate",
+                    "match": "(\\d{6}-\\d{6})-[^-]{10}-[^-]{8}-.{9}-[^-]-[^-]{6}-[^_]{4}FFD$"
+                },
+                {
+                    "tag": "FlightNo",
+                    "match": "[^_]{6}-[^_]{6}-([^_]{0,10})_*-[^-]{8}-.{9}-[^-]-[^-]{6}-[^_]{4}FFD$"
+                },
+                {
+                    "tag": "CityPair",
+                    "match": "[^-]{6}-[^-]{6}-[^-]{10}-([^_]{0,8})_*-.{9}-[^-]-[^-]{6}-[^_]{4}FFD$"
+                },
+                {
+                    "tag": "IATA",
+                    "match": "[^-]{6}-[^-]{6}-[^-]{10}-[^-]{8}-([^_-]{2}).{7}-[^-]-[^-]{6}-[^_]{4}FFD$"
+                },
+                {
+                    "tag": "TailNo",
+                    "match": "[^-]{6}-[^-]{6}-[^-]{10}-[^-]{8}-[^-]{2}_{0,1}([^_]{1,6}[^-_]{0,1})-[^-]-[^-]{6}-[^_]{4}FFD$"
+                },
+                {
+                    "tag": "EngPos",
+                    "match": "[^-]{6}-[^-]{6}-[^-]{10}-[^-]{8}-.{9}-(\\d)-[^-]{6}-[^_]{4}FFD$"
+                },
+                {
+                    "tag": "ESN",
+                    "match": "[^-]{6}-[^-]{6}-[^-]{10}-[^-]{8}-.{9}-[^-]-(\\d{6})-[^_]{4}FFD$"
+                },
+                {
+                    "tag": "SPN",
+                    "match": "[^-]{6}-[^-]{6}-[^-]{10}-[^-]{8}-.{9}-[^-]-[^-]{6}-([^_]{4})FFD$"
+                }
+            ],
+            "statictags": [
+                {
+                    "tag": "ICAO",
+                    "value": "xxxxxxxxxxxxxxxxxx"
+                },
+                {
+                    "tag": "Opertator",
+                    "value": "xxxxxxxxxxxxxxxxxx"
+                }
+            ],
+            "pollinterval": 300
         }
     ]    
 }

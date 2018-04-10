@@ -101,7 +101,7 @@
               },
               "required": ["tag","value"]
             }
-          },
+          },          
           "pollinterval": {
             "description": "The time in seconds between the last file being uploaded for a target and the next time it checks for new files ",
             "type": "integer"
