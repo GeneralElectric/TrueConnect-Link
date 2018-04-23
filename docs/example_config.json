@@ -112,8 +112,8 @@
         {
             "name":"FindTestFiles",
             "active":true,
-            "tenant":"testguid3",
-            "location": "C:\\test\\AFKLM_CEOD\\AFKLM_CEOD\\Raw",
+            "tenant":"xxxxxxxxxxxxxxxxxx",
+            "location": "xxxxxxxxxxxxxxxxxx",
             "recursive": false,
             "match": ".*FFD$",
             "datatype": "CEOD",
