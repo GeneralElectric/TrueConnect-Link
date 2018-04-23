@@ -63,7 +63,11 @@
                 {
                     "tag": "Opertator",
                     "value": "xxxxxxxxxxxxxxxxxx"
-                }
+                },
+		        {
+			        "tag": "EngineType",
+			        "value": "LEAP"
+		        }
             ]
         },
         {            
@@ -106,7 +110,11 @@
                 {
                     "tag": "Opertator",
                     "value": "xxxxxxxxxxxxxxxxxx"
-                }
+                },
+		        {
+			        "tag": "EngineType",
+			        "value": "LEAP"
+		        }
             ]
         },
         {
@@ -160,7 +168,11 @@
                 {
                     "tag": "Opertator",
                     "value": "xxxxxxxxxxxxxxxxxx"
-                }
+                },
+		        {
+			        "tag": "EngineType",
+			        "value": "GEnx"
+		        }
             ],
             "pollinterval": 300
         }
