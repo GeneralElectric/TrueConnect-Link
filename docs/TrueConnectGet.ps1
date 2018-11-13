@@ -26,7 +26,7 @@ do {
 
     $fileName = [System.IO.Path]::GetFileName($uploads[$index].metadata.original_file_name.value)
 
-    $fileName = ".\Bombardier\"+$uploads[$index].data_store_ref+"\"+$fileName
+    $fileName = ".\TrueConnect\"+$uploads[$index].data_store_ref+"\"+$fileName
 
     $folder = [System.IO.Path]::GetDirectoryName($fileName)
 
